@@ -1,5 +1,5 @@
 # Geant4 Detector Construction Pattern (G4DCP)
-G4DCP is a new detector construction strategy for creating flexible detector setups in Geant4 applications. The elements of G4DCP, in conjunction with G4VUserDetectorConstruction, the abstract class provided by Geant4, constitute an elegant template for detector setups.   
+G4DCP is a new detector construction strategy for creating flexible detector setups in Geant4 applications. The elements of G4DCP, including G4VUserDetectorConstruction, the abstract class provided by Geant4, constitute an elegant template for detector setups. The figure below summarizes the structure of G4DCP in a UML diagram.
 <br>
 <br>
    
