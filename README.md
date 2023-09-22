@@ -2,6 +2,8 @@
 
 G4DCP is a new detector construction strategy for creating flexible detector setups in Geant4 applications. The elements of G4DCP, in conjunction with G4VUserDetectorConstruction, the abstract class provided by Geant4, constitute an elegant template for detector setups. 
  ![g4dcp](https://github.com/mkandemirr/G4DCP/assets/114905224/cd4af645-a8aa-40ba-93e8-dcf014909077)
+##
+##
 
 ## The package structure:  
 
