@@ -1,0 +1,8 @@
+/det/calorimeterModule/sizeX 40 cm
+/det/calorimeterModule/sizeY 40 cm
+
+/det/calorimeterModule/addAbsorber G4_Pb 2.3 cm
+/det/calorimeterModule/addAbsorber LiquidArgon 2.3 cm
+
+
+

@@ -1,0 +1,29 @@
+# Macro file for the initialization of example B1
+# in interactive session
+#
+# Set some default verbose
+/control/verbose 2
+/control/saveHistory
+/run/verbose 2
+#
+# Change the default number of threads (in multi-threaded mode)
+#/run/numberOfThreads 4
+#
+
+#default is 990 eV
+/cuts/setLowEdge 100 eV
+
+#set default cut value for all particles(electron,positron,gamma and proton)
+/run/setCut 0.7 mm
+
+#set a cut value for a specific particle
+/run/setCutForAGivenParticle e- 0.002 mm
+
+# Initialize kernel
+/run/initialize
+#
+
+/gun/particle e-
+/gun/energy 1 MeV
+# Visualization setting
+/control/execute vis.mac
