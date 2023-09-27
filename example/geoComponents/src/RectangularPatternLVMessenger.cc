@@ -14,9 +14,9 @@
 RectangularPatternLVMessenger::RectangularPatternLVMessenger(RectangularPatternLVBuilder *builder)
 :G4UImessenger(),fBuilder(builder),
  fDir(0),
- fNumberOfModuleAlongXCmd(0),
- fNumberOfModuleAlongYCmd(0),
- fNumberOfModuleAlongZCmd(0),
+ fNumberOfSegmentAlongXCmd(0),
+ fNumberOfSegmentAlongYCmd(0),
+ fNumberOfSegmentAlongZCmd(0),
  fInterModuleDistXCmd(0),
  fInterModuleDistYCmd(0),
  fInterModuleDistZCmd(0)
@@ -24,26 +24,26 @@ RectangularPatternLVMessenger::RectangularPatternLVMessenger(RectangularPatternL
   fDir = new G4UIdirectory("/rpb/");
   fDir->SetGuidance("UI commands specific to this example");
   
-  fNumberOfModuleAlongXCmd = new G4UIcmdWithAnInteger("/rpb/numberOfModuleAlongX",this);
-  fNumberOfModuleAlongXCmd->SetGuidance("Set the number of segment along x");
-  fNumberOfModuleAlongXCmd->SetParameterName("NumberOfModuleAlongX",false);
-  //fNumberOfModuleAlongXCmd->SetRange("Size>0.");
-  fNumberOfModuleAlongXCmd->AvailableForStates(G4State_PreInit,G4State_Init);
-  fNumberOfModuleAlongXCmd->SetToBeBroadcasted(false);
+  fNumberOfSegmentAlongXCmd = new G4UIcmdWithAnInteger("/rpb/numberOfSegmentAlongX",this);
+  fNumberOfSegmentAlongXCmd->SetGuidance("Set the number of segment along x");
+  fNumberOfSegmentAlongXCmd->SetParameterName("NumberOfSegmentAlongX",false);
+  //fNumberOfSegmentAlongXCmd->SetRange("Size>0.");
+  fNumberOfSegmentAlongXCmd->AvailableForStates(G4State_PreInit,G4State_Init);
+  fNumberOfSegmentAlongXCmd->SetToBeBroadcasted(false);
   
-  fNumberOfModuleAlongYCmd = new G4UIcmdWithAnInteger("/rpb/numberOfModuleAlongY",this);
-  fNumberOfModuleAlongYCmd->SetGuidance("Set the number of segment along y");
-  fNumberOfModuleAlongYCmd->SetParameterName("NumberOfModuleAlongX",false);
-  //fNumberOfModuleAlongYCmd->SetRange("Size>0.");
-  fNumberOfModuleAlongYCmd->AvailableForStates(G4State_PreInit,G4State_Init);
-  fNumberOfModuleAlongYCmd->SetToBeBroadcasted(false);
+  fNumberOfSegmentAlongYCmd = new G4UIcmdWithAnInteger("/rpb/numberOfSegmentAlongY",this);
+  fNumberOfSegmentAlongYCmd->SetGuidance("Set the number of segment along y");
+  fNumberOfSegmentAlongYCmd->SetParameterName("NumberOfSegmentAlongX",false);
+  //fNumberOfSegmentAlongYCmd->SetRange("Size>0.");
+  fNumberOfSegmentAlongYCmd->AvailableForStates(G4State_PreInit,G4State_Init);
+  fNumberOfSegmentAlongYCmd->SetToBeBroadcasted(false);
   
-  fNumberOfModuleAlongZCmd = new G4UIcmdWithAnInteger("/rpb/numberOfModuleAlongZ",this);
-  fNumberOfModuleAlongZCmd->SetGuidance("Set the number of segment along z");
-  fNumberOfModuleAlongZCmd->SetParameterName("NumberOfModuleAlongZ",false);
-  //fNumberOfModuleAlongZCmd->SetRange("Size>0.");
-  fNumberOfModuleAlongZCmd->AvailableForStates(G4State_PreInit,G4State_Init);
-  fNumberOfModuleAlongZCmd->SetToBeBroadcasted(false);
+  fNumberOfSegmentAlongZCmd = new G4UIcmdWithAnInteger("/rpb/numberOfSegmentAlongZ",this);
+  fNumberOfSegmentAlongZCmd->SetGuidance("Set the number of segment along z");
+  fNumberOfSegmentAlongZCmd->SetParameterName("NumberOfSegmentAlongZ",false);
+  //fNumberOfSegmentAlongZCmd->SetRange("Size>0.");
+  fNumberOfSegmentAlongZCmd->AvailableForStates(G4State_PreInit,G4State_Init);
+  fNumberOfSegmentAlongZCmd->SetToBeBroadcasted(false);
   
   fInterModuleDistXCmd = new G4UIcmdWithADoubleAndUnit("/rpb/interModuleDistanceX",this);
   fInterModuleDistXCmd->SetGuidance("Set the gap between segment of along x");
@@ -73,9 +73,9 @@ RectangularPatternLVMessenger::RectangularPatternLVMessenger(RectangularPatternL
 
 RectangularPatternLVMessenger::~RectangularPatternLVMessenger()
 {
-  delete fNumberOfModuleAlongXCmd;
-  delete fNumberOfModuleAlongYCmd;
-  delete fNumberOfModuleAlongZCmd;
+  delete fNumberOfSegmentAlongXCmd;
+  delete fNumberOfSegmentAlongYCmd;
+  delete fNumberOfSegmentAlongZCmd;
   
   delete fInterModuleDistXCmd;
   delete fInterModuleDistYCmd;
@@ -89,15 +89,15 @@ RectangularPatternLVMessenger::~RectangularPatternLVMessenger()
 
 void RectangularPatternLVMessenger::SetNewValue(G4UIcommand* command,G4String newValue)
 {
-  if( command == fNumberOfModuleAlongXCmd )
+  if( command == fNumberOfSegmentAlongXCmd )
   { 
-  	fBuilder->SetNumberOfModuleAlongX(fNumberOfModuleAlongXCmd->GetNewIntValue(newValue));
-	}else if(command == fNumberOfModuleAlongYCmd)
+  	fBuilder->SetNumberOfSegmentAlongX(fNumberOfSegmentAlongXCmd->GetNewIntValue(newValue));
+	}else if(command == fNumberOfSegmentAlongYCmd)
 	{
-		fBuilder->SetNumberOfModuleAlongY(fNumberOfModuleAlongYCmd->GetNewIntValue(newValue));
-	}else if(command == fNumberOfModuleAlongZCmd)
+		fBuilder->SetNumberOfSegmentAlongY(fNumberOfSegmentAlongYCmd->GetNewIntValue(newValue));
+	}else if(command == fNumberOfSegmentAlongZCmd)
 	{
-		fBuilder->SetNumberOfModuleAlongZ(fNumberOfModuleAlongZCmd->GetNewIntValue(newValue));
+		fBuilder->SetNumberOfSegmentAlongZ(fNumberOfSegmentAlongZCmd->GetNewIntValue(newValue));
 	}
 
    

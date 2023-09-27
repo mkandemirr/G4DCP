@@ -14,9 +14,9 @@ class RectangularPatternLVBuilder : public VComponentBuilder<G4LogicalVolume> {
     RectangularPatternLVBuilder(G4LogicalVolume* moduleLV,
     												const G4String& motherLVName,
 														G4Material* motherMaterial,
-														G4int numberOfModuleAlongX =1,
-													  G4int numberOfModuleAlongY =1,
-													  G4int numberOfModuleAlongZ =1,
+														G4int numberOfSegmentAlongX =1,
+													  G4int numberOfSegmentAlongY =1,
+													  G4int numberOfSegmentAlongZ =1,
 													  G4double interModuleDistX = 0.,
 													  G4double interModuleDistY = 0.,
 													  G4double interModuleDistZ = 0.	
@@ -34,9 +34,9 @@ class RectangularPatternLVBuilder : public VComponentBuilder<G4LogicalVolume> {
 		  void SetGapX(G4double interModuleDistX);
 		  void SetGapY(G4double interModuleDistY);
 		  void SetGapZ(G4double interModuleDistZ);
-		  void SetNumberOfModuleAlongX(G4int nx);
-		  void SetNumberOfModuleAlongY(G4int ny);
-		  void SetNumberOfModuleAlongZ(G4int nz);
+		  void SetNumberOfSegmentAlongX(G4int nx);
+		  void SetNumberOfSegmentAlongY(G4int ny);
+		  void SetNumberOfSegmentAlongZ(G4int nz);
     
   private:
 		RectangularPatternLVMessenger* fMessenger;
@@ -46,9 +46,9 @@ class RectangularPatternLVBuilder : public VComponentBuilder<G4LogicalVolume> {
 		G4String fMotherLVName;
 		G4Material* fMotherMaterial;
 			
-		G4int fNumberOfModuleAlongX;
-		G4int fNumberOfModuleAlongY;
-		G4int fNumberOfModuleAlongZ;
+		G4int fNumberOfSegmentAlongX;
+		G4int fNumberOfSegmentAlongY;
+		G4int fNumberOfSegmentAlongZ;
 		
 		G4double fInterModuleDistX;
 		G4double fInterModuleDistY;

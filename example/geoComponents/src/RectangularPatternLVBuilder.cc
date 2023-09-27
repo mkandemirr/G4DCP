@@ -15,9 +15,9 @@
 RectangularPatternLVBuilder::RectangularPatternLVBuilder(G4LogicalVolume* moduleLV,
 																								const G4String& motherLVName,
 																								G4Material* motherMaterial,		
-									 															G4int numberOfModuleAlongX,
-																								G4int numberOfModuleAlongY,
-																								G4int numberOfModuleAlongZ,
+									 															G4int numberOfSegmentAlongX,
+																								G4int numberOfSegmentAlongY,
+																								G4int numberOfSegmentAlongZ,
 																								G4double interModuleDistX,
 																								G4double interModuleDistY,
 																								G4double interModuleDistZ	
@@ -27,9 +27,9 @@ fMessenger{nullptr},
 fModuleLV{moduleLV},
 fMotherLVName{motherLVName},
 fMotherMaterial{motherMaterial},
-fNumberOfModuleAlongX{numberOfModuleAlongX},	
-fNumberOfModuleAlongY{numberOfModuleAlongY},	
-fNumberOfModuleAlongZ{numberOfModuleAlongZ},
+fNumberOfSegmentAlongX{numberOfSegmentAlongX},	
+fNumberOfSegmentAlongY{numberOfSegmentAlongY},	
+fNumberOfSegmentAlongZ{numberOfSegmentAlongZ},
 fInterModuleDistX{interModuleDistX},
 fInterModuleDistY{interModuleDistY},		
 fInterModuleDistZ{interModuleDistZ}																		  
@@ -60,9 +60,9 @@ G4LogicalVolume* RectangularPatternLVBuilder::Build()
   G4double moduleSizeZ = 2*box->GetZHalfLength();
   
   //set mother solid dimensions
-  G4double motherBoxSizeX = fNumberOfModuleAlongX*moduleSizeX + (fNumberOfModuleAlongX-1)*fInterModuleDistX;
-  G4double motherBoxSizeY = fNumberOfModuleAlongY*moduleSizeY + (fNumberOfModuleAlongY-1)*fInterModuleDistY;
-  G4double motherBoxSizeZ = fNumberOfModuleAlongZ*moduleSizeZ + (fNumberOfModuleAlongZ-1)*fInterModuleDistZ;
+  G4double motherBoxSizeX = fNumberOfSegmentAlongX*moduleSizeX + (fNumberOfSegmentAlongX-1)*fInterModuleDistX;
+  G4double motherBoxSizeY = fNumberOfSegmentAlongY*moduleSizeY + (fNumberOfSegmentAlongY-1)*fInterModuleDistY;
+  G4double motherBoxSizeZ = fNumberOfSegmentAlongZ*moduleSizeZ + (fNumberOfSegmentAlongZ-1)*fInterModuleDistZ;
   
   //The sama name for box and logic
   auto motherBox  = new G4Box(fMotherLVName, motherBoxSizeX*0.5, motherBoxSizeY*0.5,motherBoxSizeZ*0.5);
@@ -75,22 +75,22 @@ G4LogicalVolume* RectangularPatternLVBuilder::Build()
   
   //----------Place Units in MainVol--------------------    	 
 
-  for(G4int i=0; i<fNumberOfModuleAlongX; ++i)
+  for(G4int i=0; i<fNumberOfSegmentAlongX; ++i)
   { 
 
-		//x =  -moduleSizeX*(fNumberOfModuleAlongX-1)*0.5 + i*moduleSizeX;
-    x =  -(moduleSizeX+fInterModuleDistX)*(fNumberOfModuleAlongX-1)*0.5 + i*(moduleSizeX+fInterModuleDistX);
+		//x =  -moduleSizeX*(fNumberOfSegmentAlongX-1)*0.5 + i*moduleSizeX;
+    x =  -(moduleSizeX+fInterModuleDistX)*(fNumberOfSegmentAlongX-1)*0.5 + i*(moduleSizeX+fInterModuleDistX);
    
     //xz layer       
-    for(G4int j =0; j<fNumberOfModuleAlongY; ++j)
+    for(G4int j =0; j<fNumberOfSegmentAlongY; ++j)
     {
 
-      y = -(moduleSizeY+fInterModuleDistY)*(fNumberOfModuleAlongY-1)*0.5 + j*(moduleSizeY+fInterModuleDistY);
+      y = -(moduleSizeY+fInterModuleDistY)*(fNumberOfSegmentAlongY-1)*0.5 + j*(moduleSizeY+fInterModuleDistY);
 
-      for(G4int k =0; k<fNumberOfModuleAlongZ; ++k)
+      for(G4int k =0; k<fNumberOfSegmentAlongZ; ++k)
       {      
 
-        z = -(moduleSizeZ+fInterModuleDistZ)*(fNumberOfModuleAlongZ-1)*0.5 + k*(moduleSizeZ+fInterModuleDistZ); 
+        z = -(moduleSizeZ+fInterModuleDistZ)*(fNumberOfSegmentAlongZ-1)*0.5 + k*(moduleSizeZ+fInterModuleDistZ); 
 
         
         new G4PVPlacement(0, 
@@ -135,17 +135,17 @@ void RectangularPatternLVBuilder::SetGapZ(G4double interModuleDistZ)
 	fInterModuleDistZ = interModuleDistZ;
 }
 
-void RectangularPatternLVBuilder::SetNumberOfModuleAlongX(G4int nx)
+void RectangularPatternLVBuilder::SetNumberOfSegmentAlongX(G4int nx)
 {
-	fNumberOfModuleAlongX = nx;
+	fNumberOfSegmentAlongX = nx;
 }
 
-void RectangularPatternLVBuilder::SetNumberOfModuleAlongY(G4int ny)
+void RectangularPatternLVBuilder::SetNumberOfSegmentAlongY(G4int ny)
 {
-	fNumberOfModuleAlongY = ny;
+	fNumberOfSegmentAlongY = ny;
 }
 
-void RectangularPatternLVBuilder::SetNumberOfModuleAlongZ(G4int nz)
+void RectangularPatternLVBuilder::SetNumberOfSegmentAlongZ(G4int nz)
 {
-	fNumberOfModuleAlongZ = nz;
+	fNumberOfSegmentAlongZ = nz;
 }

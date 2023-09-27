@@ -27,9 +27,9 @@ class RectangularPatternLVMessenger: public G4UImessenger
 
     G4UIdirectory*     fDir;
 
-		G4UIcmdWithAnInteger* fNumberOfModuleAlongXCmd;
-		G4UIcmdWithAnInteger* fNumberOfModuleAlongYCmd;
-		G4UIcmdWithAnInteger* fNumberOfModuleAlongZCmd;
+		G4UIcmdWithAnInteger* fNumberOfSegmentAlongXCmd;
+		G4UIcmdWithAnInteger* fNumberOfSegmentAlongYCmd;
+		G4UIcmdWithAnInteger* fNumberOfSegmentAlongZCmd;
 		
 		    
     G4UIcmdWithADoubleAndUnit* fInterModuleDistXCmd;

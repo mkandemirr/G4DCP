@@ -23,9 +23,9 @@ CalorimeterLVBuilder::~CalorimeterLVBuilder()
 G4LogicalVolume* CalorimeterLVBuilder::Build()
 {
   //MotherLogic 
-  G4int numberOfModuleAlongX = 2;
-  G4int numberOfModuleAlongY = 3;
-  G4int numberOfModuleAlongZ = 4;  
+  G4int numberOfSegmentAlongX = 2;
+  G4int numberOfSegmentAlongY = 3;
+  G4int numberOfSegmentAlongZ = 4;  
   
   G4double gapX = 7*cm;
   G4double gapY = 2.*cm;
@@ -35,9 +35,9 @@ G4LogicalVolume* CalorimeterLVBuilder::Build()
 	 RectangularPatternLVBuilder rpb(LogicalVolumeFactory::GetInstance()->Get("CalorimeterModule"),
 	 															 "Calorimeter",	
 								                 MaterialFactory::GetInstance()->Get("G4_Galactic"),
-								                 numberOfModuleAlongX,
-								                 numberOfModuleAlongY,
-								                 numberOfModuleAlongZ,
+								                 numberOfSegmentAlongX,
+								                 numberOfSegmentAlongY,
+								                 numberOfSegmentAlongZ,
 								                 gapX,
 								                 gapY,
 								                 gapZ
