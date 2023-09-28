@@ -67,14 +67,14 @@ G4LogicalVolume* UserLogicalVolumeFactory::Create(const G4String& name)
 }
 //Getting desired component object from the user detector construction class.
 class UserDetectorConstruction : public G4VUserDetectorConstruction{
-	G4VPhysicalVolume* Construct() override;
+  G4VPhysicalVolume* Construct() override;
 };
 G4VPhysicalVolume* DetectorConstruction::Construct()
 {
-	//G4VPhysicalVolume* pv = UserPhysicalVolumeFactory::GetInstance()->Get("..");	
-	//G4LogicalVolume* pv = UserLogicalVolumeFactory::GetInstance()->Get("..");	
-	UserLVBuilder1 builder;
-	G4LogicalVolume* lv = builder.GetProduct();
+  //G4VPhysicalVolume* pv = UserPhysicalVolumeFactory::GetInstance()->Get("..");	
+  //G4LogicalVolume* pv = UserLogicalVolumeFactory::GetInstance()->Get("..");	
+  UserLVBuilder1 builder;
+  G4LogicalVolume* lv = builder.GetProduct();
   //code for final detector construction 
 }
 ```
