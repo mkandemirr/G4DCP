@@ -1,13 +1,85 @@
 # Geant4 Detector Construction Pattern (G4DCP)
-G4DCP is a new detector construction strategy for creating flexible detector setups in Geant4 applications. The elements of G4DCP, including G4VUserDetectorConstruction, form an elegant template for detector setups. The figure below summarizes the structure of G4DCP in a UML diagram.
+G4DCP is a new detector construction interface for creating flexible detector setups in Geant4 applications. The elements of G4DCP, including G4VUserDetectorConstruction, form an elegant template for detector setups. The figure below summarizes the structure of G4DCP in a UML diagram.
 <br>
 <br>
-   
  ![g4dcp](https://github.com/mkandemirr/G4DCP/assets/114905224/cd4af645-a8aa-40ba-93e8-dcf014909077)
+<br>
+<br>
+The following code sample shows examples of creating concrete component builder and component factory classes using the elements of G4DCP.
+```cpp
+//Only relevant sections are displayed.
+//Creating a concrete logical volume builder class
+class UserLVBuilder : public VComponentBuilder<G4LogicalVolume> {
+	protected:  
+    virtual G4LogicalVolume* Build() override;
+};
+G4LogicalVolume* UserLVBuilder::Build()
+{
+//Implementation..
+}
+//Creating a concrete physical volume builder class
+class UserPVBuilder : public VComponentBuilder<G4VPhysicalVolume> {
+	protected:  
+    virtual G4VPhysicalVolume* Build() override;
+};
+G4VPhysicalVolume* UserPVBuilder::Build()
+{
+//Implementation..
+}
+//Creating a concrete material builder class
+class UserMaterialBuilder : public VComponentBuilder<G4Material> {
+	protected:  
+    virtual G4Material* Build() override;
+};
+G4Material* UserMaterialBuilder::Build()
+{
+//Implementation..
+}
+//Creating a concrete logical volume factory class. This class can be made singleton.
+class UserLogicalVolumeFactory: public VComponentFactory<G4LogicalVolume>
+{       
+  protected:    
+    virtual G4LogicalVolume* Create(const G4String& name) override;             
+};
+G4LogicalVolume* UserLogicalVolumeFactory::Create(const G4String& name)
+{
+	G4LogicalVolume* lv = G4LogicalVolumeStore::GetInstance()->GetVolume(name);
+  if(lv) return lv;
+
+  if(name=="")
+  {
+  	UserLVBuilder1 builder;
+  	return builder.GetProduct();
+   
+  }else if(name=="")
+  {
+  	UserLVBuilder2 builder;
+  	return builder.GetProduct();
+  }
+  .
+  .
+  .
+  else 
+  {
+    return nullptr; //the Get() method in the parent class handle nullptr (look at Fig. 1).
+  }
+   
+}
+//Getting desired component object from the user detector construction class.
+class UserDetectorConstruction : public G4VUserDetectorConstruction{
+	G4VPhysicalVolume* Construct() override;
+};
+G4VPhysicalVolume* DetectorConstruction::Construct()
+{
+	//G4VPhysicalVolume* pv = UserPhysicalVolumeFactory::GetInstance()->Get("..");	
+	//G4LogicalVolume* pv = UserLogicalVolumeFactory::GetInstance()->Get("..");	
+	UserLVBuilder1 builder;
+	G4LogicalVolume* lv = builder.GetProduct();
+  //code for final detector construction 
+}
+```
 
 ## The package structure:  
-
-
 _g4dcp/g4dcp_: This directory includes two class templates that are used to generate builder classes for G4Material, G4LogicalVolume and G4VPhysicalVolume. 
 
 _g4dcp/example_: This directory contains a sample Geant4 application that shows how to create a detector using G4DCP.
