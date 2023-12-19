@@ -80,9 +80,8 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 ```
 
 ## The package structure:  
-_g4dcp/g4dcp_: This directory includes two class templates that are used to generate builder classes for G4Material, G4LogicalVolume and G4VPhysicalVolume. 
-
-_g4dcp/example_: This directory contains a sample Geant4 application that shows how to create a detector using G4DCP.
+_g4dcp/g4dcp_: This directory includes two class templates that are used to generate builder classes related to geometry such as G4Material, G4LogicalVolume, G4VPhysicalVolume, G4OpticalSurface and so on. 
+_g4dcp/example_: This directory contains a sample Geant4 application that shows how to construct a detector using G4DCP.
 
 ## Tested on 
 
