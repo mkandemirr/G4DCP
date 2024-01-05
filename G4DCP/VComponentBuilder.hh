@@ -7,7 +7,6 @@
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 template <typename T>
 class VComponentBuilder{
-
   public:
     VComponentBuilder();
     virtual ~VComponentBuilder(){};
@@ -16,9 +15,7 @@ class VComponentBuilder{
   
   protected:
     virtual T* Build() = 0;   
- 	
- 		T* product;
-      
+    T* product;      
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -31,10 +28,10 @@ VComponentBuilder<T>::VComponentBuilder():product{nullptr}
 template <typename T>
 T* VComponentBuilder<T>::GetProduct()
 {
-	if(product)
-		return product;
-	else	
-  	return Build();
+  if(product)
+    return product;
+  else
+    return Build();
 }
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
