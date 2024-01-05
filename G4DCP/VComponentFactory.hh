@@ -13,9 +13,8 @@ class VComponentFactory
     virtual ~VComponentFactory(){};
      
   public:     
-    //This method internally invokes the factory method. 				                         
-		T* Get(const G4String& name);
-	  				                          
+    //This method internally invokes the factory method.                          
+    T* Get(const G4String& name);                          
   protected: 
     virtual T* Create(const G4String& name) = 0;               
 };
@@ -26,15 +25,13 @@ template <typename T>
 T* VComponentFactory<T>::Get(const G4String& name)
 {
   T* product = Create(name);
-  
   if (!product) 
-	{
-		std::ostringstream o;
-		o << "Component " << name << " not found!";
-		G4Exception("VComponentFactory::Get()","",FatalException,o.str().c_str());
-	}
-	
-	return product;
+  {
+    std::ostringstream o;
+    o << "Component " << name << " not found!";
+    G4Exception("VComponentFactory::Get()","",FatalException,o.str().c_str());
+  }
+  return product;
 }
 
 #endif 
