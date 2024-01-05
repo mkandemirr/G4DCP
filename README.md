@@ -89,7 +89,17 @@ _g4dcp/example_: This directory contains a sample Geant4 application that shows 
 * Architecture: x86_64
 * Compiler: GCC 11.3.0
 * Geant4.11.1.1
+## How to use G4DCP in a Geant4 application? 
+Copy the G4DCP directory to the project source directory, where your CMakeList.txt file is located, and add the following two lines of code to the appropriate place of your CMakeList.txt file (for help, you can examine the CMakeList.txt files in the provided example application). 
 
+before the executable target is created:
+ ```cmake	
+   add_subdirectory(G4DCP)
+  ```
+after the executable target is created:
+```cmake	
+   target_link_libraries(yourExecutableTarget g4dcp ${Geant4_LIBRARIES} )
+  ```
 ## How to run the provided example application?   
   
 1. Go to the directory where you installed the example in your system.
