@@ -4,7 +4,6 @@
 #include "LogicalVolumeFactory.hh"
 #include "RectangularPatternLVBuilder.hh"
 
-
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 CalorimeterLVBuilder::CalorimeterLVBuilder(): 
@@ -32,18 +31,18 @@ G4LogicalVolume* CalorimeterLVBuilder::Build()
   G4double gapZ = 15*cm;
   
   //GetPattern
-	 RectangularPatternLVBuilder rpb(LogicalVolumeFactory::GetInstance()->Get("CalorimeterModule"),
-	 															 "Calorimeter",	
-								                 MaterialFactory::GetInstance()->Get("G4_Galactic"),
-								                 numberOfSegmentAlongX,
-								                 numberOfSegmentAlongY,
-								                 numberOfSegmentAlongZ,
-								                 gapX,
-								                 gapY,
-								                 gapZ
-								                 ); 
+  RectangularPatternLVBuilder rpb(
+    LogicalVolumeFactory::GetInstance()->Get("CalorimeterModule"),
+    "Calorimeter",
+    MaterialFactory::GetInstance()->Get("G4_Galactic"),
+    numberOfSegmentAlongX,
+    numberOfSegmentAlongY,
+    numberOfSegmentAlongZ,
+    gapX,
+    gapY,
+    gapZ); 
                                      
-	return rpb.GetProduct();
+  return rpb.GetProduct();
 
 }
 

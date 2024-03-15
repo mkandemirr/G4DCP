@@ -1,7 +1,5 @@
 #include "CalorimeterModuleLVMessenger.hh"
-
 #include <sstream>
-
 #include "CalorimeterModuleLVBuilder.hh"
 #include "G4UIdirectory.hh"
 #include "G4UIcommand.hh"
@@ -22,19 +20,19 @@ CalorimeterModuleLVMessenger::CalorimeterModuleLVMessenger(CalorimeterModuleLVBu
  fAbsorCmd(nullptr)
 { 
 
-	G4String rootDirectory     = "/det/"; 
+  G4String rootDirectory     = "/det/"; 
   G4String commandDirectory  = "/det/calorimeterModule/";
   
   if(!fRootDir)
   {
-		fRootDir = new G4UIdirectory(rootDirectory);
-		fRootDir->SetGuidance("UI commands specific to this example");
+    fRootDir = new G4UIdirectory(rootDirectory);
+    fRootDir->SetGuidance("UI commands specific to this example");
   }
   
   if(!fCmdDir)
   {
-  	fCmdDir = new G4UIdirectory(commandDirectory);
-  	fCmdDir->SetGuidance("detector construction commands");
+    fCmdDir = new G4UIdirectory(commandDirectory);
+    fCmdDir->SetGuidance("detector construction commands");
   }
   
   
@@ -72,7 +70,7 @@ CalorimeterModuleLVMessenger::CalorimeterModuleLVMessenger(CalorimeterModuleLVBu
   fAbsorCmd->SetGuidance("  material name");
   fAbsorCmd->SetGuidance("  thickness (with unit) : t>0."); 
   
-	//Add parameters to the command3. 
+//Add parameters to the command3. 
   //first parameter
   G4UIparameter* MatPrm = new G4UIparameter("material",'s',false);
   MatPrm->SetGuidance("material name");
@@ -100,11 +98,12 @@ CalorimeterModuleLVMessenger::CalorimeterModuleLVMessenger(CalorimeterModuleLVBu
 
 CalorimeterModuleLVMessenger::~CalorimeterModuleLVMessenger()
 {
-	if(fRootDir)
-		delete fRootDir;  
-	if(fCmdDir)
-		delete fCmdDir;
-  	
+  if(fRootDir)
+    delete fRootDir;  
+  
+  if(fCmdDir)
+    delete fCmdDir;
+
   delete fModuleSizeXCmd;
   delete fModuleSizeYCmd;
   delete fAbsorCmd;
@@ -117,23 +116,23 @@ void CalorimeterModuleLVMessenger::SetNewValue(G4UIcommand* command,G4String new
 {
   if(command == fModuleSizeXCmd )
   { 
-  	fCalBuilder->SetModuleSizeX(fModuleSizeXCmd->GetNewDoubleValue(newValue));
-	}else if(command == fModuleSizeYCmd)
-	{
-		fCalBuilder->SetModuleSizeY(fModuleSizeYCmd->GetNewDoubleValue(newValue));
-	}else if (command == fAbsorCmd)
+    fCalBuilder->SetModuleSizeX(fModuleSizeXCmd->GetNewDoubleValue(newValue));
+  }else if(command == fModuleSizeYCmd)
   {
-		G4double tick;
-		G4String unt, mat;
+    fCalBuilder->SetModuleSizeY(fModuleSizeYCmd->GetNewDoubleValue(newValue));
+  }else if (command == fAbsorCmd)
+  {
+    G4double tick;
+    G4String unt, mat;
 
-		std::istringstream is(newValue);
-		is >> mat >> tick >> unt;
+    std::istringstream is(newValue);
+    is >> mat >> tick >> unt;
 
-		G4String material = mat;
-		tick *= G4UIcommand::ValueOf(unt);
+    G4String material = mat;
+    tick *= G4UIcommand::ValueOf(unt);
 
-		fCalBuilder->AddAbsorber(material,tick);
-   }
+    fCalBuilder->AddAbsorber(material,tick);
+  }
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

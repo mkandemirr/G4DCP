@@ -4,6 +4,8 @@
 #include "globals.hh"
 #include "G4UImessenger.hh"
 
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
 class CalorimeterModuleLVBuilder;
 class G4UIdirectory;
 class G4UIcommand;

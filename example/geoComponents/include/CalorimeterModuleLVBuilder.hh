@@ -1,8 +1,11 @@
 #ifndef CalorimeterModuleLVBuilder_h
 #define CalorimeterModuleLVBuilder_h 1
 
-//#include "VLogicalVolumeBuilder.hh"
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
 #include "VComponentBuilder.hh"
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 class G4LogicalVolume;
 class G4Material;

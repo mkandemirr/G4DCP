@@ -1,10 +1,10 @@
-
-
 #ifndef RectangularPatternLVMessenger_h
 #define RectangularPatternLVMessenger_h 1
 
 #include "globals.hh"
 #include "G4UImessenger.hh"
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 class RectangularPatternLVBuilder;
 class G4UIdirectory;
@@ -24,18 +24,13 @@ class RectangularPatternLVMessenger: public G4UImessenger
 
   private:
     RectangularPatternLVBuilder*  fBuilder;
-
-    G4UIdirectory*     fDir;
-
-		G4UIcmdWithAnInteger* fNumberOfSegmentAlongXCmd;
-		G4UIcmdWithAnInteger* fNumberOfSegmentAlongYCmd;
-		G4UIcmdWithAnInteger* fNumberOfSegmentAlongZCmd;
-		
-		    
+    G4UIdirectory* fDir;
+    G4UIcmdWithAnInteger* fNumberOfSegmentAlongXCmd;
+    G4UIcmdWithAnInteger* fNumberOfSegmentAlongYCmd;
+    G4UIcmdWithAnInteger* fNumberOfSegmentAlongZCmd;
     G4UIcmdWithADoubleAndUnit* fInterModuleDistXCmd;
     G4UIcmdWithADoubleAndUnit* fInterModuleDistYCmd;
-    G4UIcmdWithADoubleAndUnit* fInterModuleDistZCmd;
-   
+    G4UIcmdWithADoubleAndUnit* fInterModuleDistZCmd; 
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

@@ -2,11 +2,11 @@
 #define PrimaryGeneratorAction_h 1
 
 #include "G4VUserPrimaryGeneratorAction.hh"
-#include "G4ParticleGun.hh"
-#include "globals.hh"
+
+class G4GeneralParticleSource;
+class G4Event;
 
 class G4ParticleGun;
-class G4Event;
 
 class PrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction
 {
@@ -14,18 +14,11 @@ class PrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction
     PrimaryGeneratorAction();
     ~PrimaryGeneratorAction() override;
 
-    // method from the base class
-    void GeneratePrimaries(G4Event*) override;
-
-    // method to access particle gun
-    //const G4ParticleGun* GetParticleGun() const { return fParticleGun; }
+    virtual void GeneratePrimaries(G4Event*) override;
 
   private:
-    G4ParticleGun* fParticleGun = nullptr; 
-    
+    G4GeneralParticleSource* mGPSGun; 
 };
-
-
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 

@@ -37,6 +37,7 @@ add_subdirectory(G4DCP)
 #----------------------------------------------------------------------------
 # Add the executable, and link it to the Geant4 libraries
 #
+
 add_executable(main main.cc ${sources} ${headers})
 target_link_libraries(main g4dcp ${Geant4_LIBRARIES})
 
@@ -46,13 +47,11 @@ target_link_libraries(main g4dcp ${Geant4_LIBRARIES})
 # relies on these scripts being in the current working directory.
 #
 set(main_SCRIPTS
-  
   init_vis.mac
-  
+  run.mac
   vis.mac
   calorimeterModuleSettings.mac
   rpBuilderSettings.mac
-  
   )
 
 foreach(_script ${main_SCRIPTS})

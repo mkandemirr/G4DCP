@@ -5,7 +5,11 @@
 
 #include "VComponentFactory.hh"
 
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
 class G4Material;
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 //singleton class
 class MaterialFactory: public VComponentFactory<G4Material>

@@ -1,10 +1,13 @@
 #ifndef VComponentBuilder_h
 #define VComponentBuilder_h 1
 
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
 #include "G4SystemOfUnits.hh"
 #include "globals.hh"
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
 template <typename T>
 class VComponentBuilder{
   public:

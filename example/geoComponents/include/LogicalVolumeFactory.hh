@@ -5,6 +5,8 @@
 
 #include "VComponentFactory.hh"
 
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
 class G4LogicalVolume;
 
 //singleton class

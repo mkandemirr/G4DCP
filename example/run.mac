@@ -21,6 +21,7 @@
 
 # Initialize kernel
 /run/initialize
+#
 
 #Select particle type
 /gps/particle e-
@@ -44,5 +45,4 @@
 
 /gps/verbose 0
 
-# Visualization setting
-/control/execute vis.mac
+/run/beamOn 1

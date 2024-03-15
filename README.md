@@ -125,7 +125,11 @@ passed to CMake. The first argument to CMake is the path to the source directory
   ```
 5. The application is now ready to run. If you now list the contents of your build directory, you will notice that the executable g4dcp has been created. The program can be executed in two modes: interactive and batch. To run in an interactive mode:
   ```bash
-   ./g4dcp
+   ./main
+``` 
+6. To run in batch mode:
+ ```bash
+   ./main run.mac
 ``` 
 ## Contacts 
 

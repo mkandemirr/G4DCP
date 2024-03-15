@@ -4,6 +4,7 @@
 #include "VComponentBuilder.hh"
 
 class G4LogicalVolume;
+
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 class CalorimeterLVBuilder : public VComponentBuilder<G4LogicalVolume> {
