@@ -123,7 +123,7 @@ passed to CMake. The first argument to CMake is the path to the source directory
   ```bash
    make  
   ```
-5. The application is now ready to run. If you now list the contents of your build directory, you will notice that the executable g4dcp has been created. The program can be executed in two modes: interactive and batch. To run in an interactive mode:
+5. The application is now ready to run. If you now list the contents of your build directory, you will notice that the executable main has been created. The program can be executed in two modes: interactive and batch. To run in an interactive mode:
   ```bash
    ./main
 ``` 
