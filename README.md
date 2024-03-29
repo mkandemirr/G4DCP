@@ -136,3 +136,16 @@ passed to CMake. The first argument to CMake is the path to the source directory
 If you have any questions or wish to notify of updates and/or modification please contact: \
 Mustafa Kandemir (mustafa.kandemir@erdogan.edu.tr)
 
+## Citation
+@article{KANDEMIR2024109183, \
+title = {A custom detector construction pattern for Geant4 applications}, \
+journal = {Computer Physics Communications}, \
+volume = {300}, \
+pages = {109183}, \
+year = {2024}, \
+issn = {0010-4655}, \
+doi = {https://doi.org/10.1016/j.cpc.2024.109183}, \
+url = {https://www.sciencedirect.com/science/article/pii/S0010465524001061}, \
+author = {Mustafa Kandemir}, \
+keywords = {G4VUserDetectorConstruction, Design pattern, Modular coding, Detector components, Geometry construction},
+}
